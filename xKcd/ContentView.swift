@@ -7,15 +7,37 @@
 //
 
 import SwiftUI
+import Combine
 
-struct ContentView: View {
+struct ComicList: View {
+    
+    private var viewModel = ComicListViewModel()
+    
     var body: some View {
-        Text("Hello, World!")
+        UIScrollViewWrapper {
+            Comics().frame(height: 800)
+            Comics().frame(height: 800)
+            Comics().frame(height: 800)
+            }.frame(height: 800).onAppear(perform: fetch)
     }
+    
+    private func fetch() {
+        let net = Network()
+        net.loadComic(id: 1) { (comic, error) in
+            print(comic, error)
+        }
+    }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ComicList()
+    }
+}
+
+struct Comics: View {
+    var body: some View {
+        Text("Comics")
     }
 }
