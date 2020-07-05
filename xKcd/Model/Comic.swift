@@ -8,21 +8,40 @@
 
 import Foundation
 
-// MARK: - Comic
-struct Comic: Codable, Hashable, Identifiable {
-    var id = UUID()
+
+struct Comic: Codable, Hashable {
     
-//    let month: String
+    let month: String
     let num: Int
-//    let link, year, news, safeTitle: String
-//    let transcript, alt: String
+    let link: String
+    let year: String
+    let news: String
+    let safeTitle: String
+    let transcript: String
+    let alt: String
     let img: String
-//    let title, day: String
+    let title: String
+    let day: String
+    
+    init(num: Int) {
+        self.num = num
+        month = ""
+        link = ""
+        year = ""
+        news = ""
+        safeTitle = ""
+        transcript = ""
+        alt = ""
+        img = ""
+        title = ""
+        day = ""
+
+    }
     
     enum CodingKeys: String, CodingKey {
-//        case month, num, link, year, news
-//        case safeTitle = "safe_title"
-//        case transcript, alt, img, title, day
         case num, img
+        case month, link, year, news
+        case safeTitle = "safe_title"
+        case transcript, alt, title, day
     }
 }

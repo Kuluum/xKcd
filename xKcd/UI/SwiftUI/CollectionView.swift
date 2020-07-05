@@ -10,13 +10,16 @@ import SwiftUI
 import UIKit
 import Combine
 
+
 struct CollectionView<Section: Hashable, Item: Hashable>: UIViewControllerRepresentable {
 
+    
     // MARK: - Properties
     let layout: UICollectionViewLayout
     let sections: [Section]
     let items: [Section: [Item]]
     let prefetch: (([IndexPath]) -> Void)?
+    
     
     // MARK: - Actions
     let snapshot: (() -> NSDiffableDataSourceSnapshot<Section, Item>)?
@@ -155,12 +158,9 @@ extension CollectionViewController {
 
     private func cellProvider(collectionView: UICollectionView, indexPath: IndexPath, item: Item) -> UICollectionViewCell? {
 
-        print("Providing cell for \(indexPath)")
-
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HostingControllerCollectionViewCell<AnyView> else {
             fatalError("Coult not load cell!")
         }
-
 
         cell.host(content(indexPath, item))
 
@@ -174,12 +174,6 @@ extension CollectionViewController {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 }
-
-
-
-
-
-
 
 
 class HostingControllerCollectionViewCell<Content: View> : UICollectionViewCell {
