@@ -33,7 +33,7 @@ struct ComicList: View {
     }
     
     private func fetch() {
-        viewModel.fetchComic(ids: [1,2,3,4,5,6])
+        viewModel.fetchMoreComics()
     }
 
     func prefetch(_ indexPathes:[IndexPath]) {
@@ -44,9 +44,7 @@ struct ComicList: View {
         else { return }
         
         if row >= comicList.count - 3 {
-            let toLoad = Array(comicList.count...comicList.count+5).map { UInt($0) }
-            
-            viewModel.fetchComic(ids: toLoad)
+            viewModel.fetchMoreComics()
         }
 
     }

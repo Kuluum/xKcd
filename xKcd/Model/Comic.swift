@@ -9,7 +9,8 @@
 import Foundation
 
 
-struct Comic: Codable, Hashable {
+struct Comic: Codable, Hashable, Identifiable {
+    let id = UUID()
     
     let month: String
     let num: Int
