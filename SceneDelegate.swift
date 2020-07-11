@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let dataProvider = Network()
         let viewModel = ComicListViewModel(dataProvider: dataProvider)
-        let contentView = ComicList(viewModel: viewModel)
+        let contentView = ComicListView(viewModel: viewModel)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

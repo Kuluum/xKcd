@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		594DDDD224B0CC78004894CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594DDDD124B0CC78004894CC /* AppDelegate.swift */; };
 		594DDDD424B0CC78004894CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594DDDD324B0CC78004894CC /* SceneDelegate.swift */; };
-		594DDDD624B0CC78004894CC /* ComicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594DDDD524B0CC78004894CC /* ComicList.swift */; };
+		594DDDD624B0CC78004894CC /* ComicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594DDDD524B0CC78004894CC /* ComicListView.swift */; };
 		594DDDD824B0CC7A004894CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 594DDDD724B0CC7A004894CC /* Assets.xcassets */; };
 		594DDDDE24B0CC7A004894CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 594DDDDC24B0CC7A004894CC /* LaunchScreen.storyboard */; };
 		5978861B24B0D2C700FE9AF3 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5978861A24B0D2C700FE9AF3 /* Comic.swift */; };
@@ -29,7 +29,7 @@
 		594DDDCE24B0CC78004894CC /* xKcd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xKcd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		594DDDD124B0CC78004894CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		594DDDD324B0CC78004894CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		594DDDD524B0CC78004894CC /* ComicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicList.swift; sourceTree = "<group>"; };
+		594DDDD524B0CC78004894CC /* ComicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListView.swift; sourceTree = "<group>"; };
 		594DDDD724B0CC7A004894CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		594DDDDD24B0CC7A004894CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		594DDDDF24B0CC7A004894CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = xKcd/Info.plist; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			children = (
 				5978865124B1DF8900FE9AF3 /* SwiftUI */,
 				5978861F24B0D84500FE9AF3 /* ComicListViewModel.swift */,
-				594DDDD524B0CC78004894CC /* ComicList.swift */,
+				594DDDD524B0CC78004894CC /* ComicListView.swift */,
 				5978865924B1F7E200FE9AF3 /* ComicView.swift */,
 			);
 			path = UI;
@@ -235,7 +235,7 @@
 				5978864E24B12D5900FE9AF3 /* DataProvider.swift in Sources */,
 				594DDDD424B0CC78004894CC /* SceneDelegate.swift in Sources */,
 				5978865824B1EEAC00FE9AF3 /* View+Erase.swift in Sources */,
-				594DDDD624B0CC78004894CC /* ComicList.swift in Sources */,
+				594DDDD624B0CC78004894CC /* ComicListView.swift in Sources */,
 				5978865024B1DBA100FE9AF3 /* DataRequestInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,19 +372,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"xKcd/Preview Content\"";
-				DEVELOPMENT_TEAM = 57P8ZPM5J7;
+				DEVELOPMENT_TEAM = 38RZP7AN3K;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = xKcd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kd.xKcd;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikzen.xKcd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -392,19 +395,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"xKcd/Preview Content\"";
-				DEVELOPMENT_TEAM = 57P8ZPM5J7;
+				DEVELOPMENT_TEAM = 38RZP7AN3K;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = xKcd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kd.xKcd;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikzen.xKcd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

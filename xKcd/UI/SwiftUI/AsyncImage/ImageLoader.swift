@@ -30,25 +30,22 @@ class ImageLoader: ObservableObject {
     func load() {
         guard !isLoading else { return }
         
+        
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
             .map { UIImage(data: $0.data) }
             .replaceError(with: nil)
-            .handleEvents(receiveSubscription: { [weak self] _ in self?.onStart() },
-                          receiveCompletion: { [weak self] _ in self?.onFinish() },
+            .handleEvents(receiveCompletion: { [weak self] _ in self?.onFinish() },
                           receiveCancel: { [weak self] in self?.onFinish() })
             .subscribe(on: Self.imageProcessingQueue)
             .receive(on: DispatchQueue.main)
             .assign(to: \.image, on: self)
+        isLoading = true
     }
     
     func cancel() {
         cancellable?.cancel()
     }
-    
-    private func onStart() {
-        isLoading = true
-    }
-    
+        
     private func onFinish() {
         isLoading = false
     }

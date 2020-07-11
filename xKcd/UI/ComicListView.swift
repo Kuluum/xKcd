@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-struct ComicList: View {
+struct ComicListView: View {
     
     @ObservedObject private var viewModel: ComicListViewModel
     

@@ -9,14 +9,18 @@
 import SwiftUI
 import Combine
 
-struct AsyncImage<Placeholder: View>: View {
+struct AsyncImage: View {
     @ObservedObject private var loader: ImageLoader
-    private let placeholder: Placeholder?
+    
     private let configuration: (Image) -> AnyView
     
-    init(url: URL, placeholder: Placeholder? = nil, configuration: @escaping (Image) -> AnyView = { $0.eraseToAnyView() }) {
+    init(url: URL, configuration: @escaping (Image) -> AnyView = { $0.eraseToAnyView() }) {
         loader = ImageLoader(url: url)
-        self.placeholder = placeholder
+        self.configuration = configuration
+    }
+    
+    init(loader: ImageLoader, configuration: @escaping (Image) -> AnyView = { $0.eraseToAnyView() }) {
+        self.loader = loader
         self.configuration = configuration
     }
     
@@ -30,8 +34,6 @@ struct AsyncImage<Placeholder: View>: View {
         Group {
             if loader.image != nil {
                 configuration(Image(uiImage: loader.image!))
-            } else {
-                placeholder
             }
         }
     }
